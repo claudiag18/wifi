@@ -1,0 +1,49 @@
+{% include 'header.html' %}
+<div style="background-image:url({{cafe.img_url}}); background-size:cover; background-color:#DCDCDC; background-position: center; background-blend-mode:screen; min-height: 100vh">
+  <form method="post" action="/update/{{cafe.id}}" class="update_section">
+    <h1 class="title"> {{ cafe.name}}</h1>
+    {% if msg == "" %}
+      <div>
+        <div class="col-25">
+            <label class="form-label update_label">Cafe's name:</label>
+            <label class="form-label update_label">Cafe's map's url:</label>
+            <label class="form-label update_label">Cafe's image's url:</label>
+            <label class="form-label update_label">Cafe's location:</label>
+            <label class="form-label update_label">Cafe's number of seats:</label>
+            <label class="form-label update_label">Cafe's bathroom's availability:</label>
+            <label class="form-label update_label">Cafe's WiFi availability:</label>
+            <label class="form-label update_label">Cafe's electrical plugs availability:</label>
+            <label class="form-label update_label">Can calls be taken at cafe:</label>
+            <label class="form-label update_label">Coffee price:</label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="nombre" class="form-control" placeholder={{cafe.name}} />
+          <input type="text" name="mapa" class="form-control" placeholder={{cafe.map_url}} />
+          <input type="text" name="imagen" class="form-control" placeholder={{cafe.img_url}} />
+          <input type="text" name="location" class="form-control" placeholder={{cafe.location}} />
+          <input type="text" name="seats" class="form-control" placeholder={{cafe.seats}} />
+          <input type="text" name="toilet" class="form-control" placeholder='Yes or No' />
+          <input type="text" name="wifi" class="form-control" placeholder='Yes or No' />
+          <input type="text" name="sockets" class="form-control" placeholder='Yes or No' />
+          <input type="text" name="calls" class="form-control" placeholder='Yes or No' />
+          <input type="text" name="price" class="form-control" placeholder={{cafe.coffee_price}} />
+        </div>
+      </div>
+      <div class="form-outline">
+         <label class="form-label" for="clave"> Type one word answer to update!</label>
+          <h2 class="update_question">{{ rd }}</h2>
+          <br>
+          <input type="text" name="clave" class="form-control delete_input" required/>
+          <br>
+          <button type="submit" class="btn btn-primary"  style="top-margin: 100px">Update</button>
+      </div>
+    {% else: %}
+      <br>
+      <h2> {{msg }}</h2>
+      <br>
+      <a href="{{ url_for('home') }}" class="btn btn-primary">Go home</a>
+    {% endif %}
+  </form>
+</div>
+
+{% include 'footer.html' %}

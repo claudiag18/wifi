@@ -1,0 +1,76 @@
+.title {
+  color: #B91646;
+  font-size: 5.0rem;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.data_title {
+  color: #2F86A6;
+  font-size: 1.8rem;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.section_text {
+    color: #1b262c;
+    font-size:1.2rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+    width: 70%;
+}
+
+.delete_section {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+.delete_input {
+     width: 500px;
+     margin: auto;
+}
+
+.delete_question {
+    color: #B91646;
+    padding-top: 100px;
+    width: 70%;
+    margin:auto;
+    text-align: center;
+}
+
+.update_question {
+    color: #B91646;
+    padding-top: 20px;
+    width: 100%;
+    margin:auto;
+    text-align: center;
+}
+
+.update_section {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+.col-25 {
+  float: left;
+  width: 30%;
+  margin-top: 6px;
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.col-75 {
+  float:right;
+  width: 70%;
+  margin-top: 6px;
+}
+
+.update_label {
+    width: 100%;
+}

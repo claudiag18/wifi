@@ -1,0 +1,63 @@
+{% include 'header.html' %}
+<div style="background-image:url({{url_for('static',filename='images/foto2.jpg')}}); background-size:cover; background-color:#DCDCDC; background-position: center; background-blend-mode:screen; min-height: 100vh;">
+  <h1 class="title"> Great to Work WiFi Cafes</h1>
+    <div class="container">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        {% for cafe in cafes: %}
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed data_title" type="button" data-bs-toggle="collapse" data-bs-target={{ cafe.nid_accordion }} aria-expanded="false" aria-controls={{ cafe.id_accordion }}>
+                <img src={{cafe.img_url}} class="rounded me-2" alt="logo" width="150" height="100">{{ cafe.name }}
+              </button>
+            </h2>
+            <div id={{ cafe.id_accordion }} class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body section_text">
+                <p> Cafe location: {{cafe.location }}.  <a href={{ cafe.map_url }} target="_blank">See map </a></p>
+                <ul>
+                  <li>Number of seats: {{ cafe.seats }}</li>
+                  <li>Does it have WiFi?
+                        {% if cafe.has_wifi == 1: %}
+                            Yes
+                        {% else: %}
+                            No
+                        {% endif %}
+                  </li>
+                  <li>Does it have public bathrooms?
+                        {% if cafe.has_toilet == 1: %}
+                            Yes
+                        {% else: %}
+                            No
+                        {% endif %}
+                  </li>
+                  <li>Does it have power outlets?
+                        {% if cafe.has_sockets == 1: %}
+                            Yes
+                        {% else: %}
+                            No
+                        {% endif %}
+                  </li>
+                  <li>Can you take calls?
+                        {% if cafe.can_take_calls == 1: %}
+                            Yes
+                        {% else: %}
+                            No
+                        {% endif %}
+                  </li>
+                  <li>Coffee price: {{ cafe.coffee_price }}</li>
+                </ul>
+                  <a href="{{ url_for('update', cafe_id=cafe.id) }}" class="btn btn-primary">Update</a>
+                  <a href="{{ url_for('delete', cafe_id=cafe.id) }}" class="btn btn-primary">Delete</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <br>
+    <div style="text-align: center">
+        <a href="{{ url_for('add') }}" class="btn btn-primary">Add New Cafe</a>
+    </div>
+</div>
+
+{% include 'footer.html' %}}
+

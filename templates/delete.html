@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+<div style="background-image:url({{cafe.img_url}}); background-size:cover; background-color:#DCDCDC; background-position: center; background-blend-mode:screen; min-height: 100vh">
+  <form method="post" action="/delete/{{cafe.id}}" class="delete_section">
+    <h1 class="title"> {{ cafe.name}}</h1>
+    {% if msg == "" %}
+      <h2> Are you sure you want to delete it? </h2>
+      <div class="form-outline">
+        <label class="form-label" for="clave">Please type the secret one word key:</label>
+        <h2 class="delete_question">{{ rd }}</h2>
+        <br>
+        <input type="text" name="clave" class="form-control delete_input" required/>
+        <br>
+      </div>
+      <button type="submit" class="btn btn-primary"  style="top-margin: 100px">Yes</button>
+      <a href="{{ url_for('home') }}" class="btn btn-primary"  style="top-margin: 100px">No</a>
+    {% else: %}
+      <br>
+      <h2> {{msg }}</h2>
+      <br>
+      <a href="{{ url_for('home') }}" class="btn btn-primary">Go home</a>
+    {% endif %}
+  </form>
+</div>
+
+{% include 'footer.html' %}
